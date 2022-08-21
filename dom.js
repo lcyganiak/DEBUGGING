@@ -219,3 +219,57 @@ function changeColor() {
 }
 
 inputColor.addEventListener('change', changeColor)
+
+
+
+// usuwanie dziecka metoda removeChild()
+
+const btnRemove = document.getElementById('btn-remove')
+
+
+function removeEl() {
+    const rodzc = document.getElementById('rodzic')
+    const usuwaneDziecko = document.getElementById('dziecko2')
+    const wszystkieDzieci = [...rodzc.children] // zachowa orginalną tablice dzieci 
+    const wszystkieDzieciZreferencjami = rodzc.children // po usnięcie tablica się zaktualizuje się, nie mam usuniętego dziecka
+    const usunieteDziecko =  rodzc.removeChild(usuwaneDziecko)
+   console.log("usunięte referencja", wszystkieDzieci)
+   console.log("referencja", wszystkieDzieciZreferencjami)
+
+}
+
+btnRemove.addEventListener('click', removeEl)
+
+
+
+// Event Target 
+const paragrafDoTargetu = document.getElementById('xd')
+
+paragrafDoTargetu.addEventListener('click', (event) => {
+    console.log(event)
+
+})
+
+
+const inputPodTargetEvent = document.getElementById('inputPodTargetEvent')
+
+
+inputPodTargetEvent.addEventListener('change', (event) => {
+    console.log(event)
+    console.log("event.target", event.target)
+    console.log("event.target.value", event.target.value)
+})
+// alternatywa 
+
+inputPodTargetEvent.addEventListener('change', () => {
+    const inputPobranie = document.getElementById('inputPodTargetEvent')
+
+
+})
+// DefaultPrevented 
+const link = document.getElementById('linkDoDokumnetacjiDefaultPrevented')
+
+link.addEventListener('click', (event)=> {
+    console.log(456)
+    event.preventDefault();
+})

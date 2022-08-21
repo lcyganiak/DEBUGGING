@@ -6,27 +6,22 @@
     const data = fetch('https://jsonplaceholder.typicode.com/posts')
 .then(res => res.json())
 
-    return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(data);
-        }, 1);
-      });
+    return data
 }
 
 function literacja(parametr) {
     parametr.forEach(element => {
         console.log(element)
     });
+    return parametr
 }
-
 async function wraper() {
-    const data =  await get()
-    console.log(data)
-    literacja(data)
-    return data
+    const data = await get()
+  literacja(data)
 }
 
 
-const xd = wraper()
 
-console.log(xd)
+
+const e =literacja(await get())
+console.log(e)
